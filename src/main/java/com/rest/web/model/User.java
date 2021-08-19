@@ -1,4 +1,4 @@
-package com.petharu.web.model;
+package com.rest.web.model;
 
 public class User {
 	private String name;
