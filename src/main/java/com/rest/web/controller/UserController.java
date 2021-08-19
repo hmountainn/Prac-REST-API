@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,4 +57,16 @@ public class UserController {
 		return userList;
 	}
 	
+	//Update
+	@PutMapping("/user/{id}")
+	public void putUser(@PathVariable("id") String id,
+						@RequestParam("name") String name,
+						@RequestParam("phone") String phone,
+						@RequestParam("address") String address) {
+		
+		User user = userMap.get(id);
+		user.setName(name);
+		user.setPhone(phone);
+		user.setAddress(address);
+	}
 }
